@@ -8,7 +8,8 @@ const Covid = () => {
     .subtract(31, "days")
     .toISOString(true);
   let { allData, loading, isError } = useFetch(
-    `https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${today}`
+    `https://api.covid19api.com/country/vietnam?from=${priorDate}&to=${today}`,
+    false
   );
   return (
     <>

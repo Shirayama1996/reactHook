@@ -1,13 +1,15 @@
 import logo from "./logo.svg";
-import "./App.css";
+import "./App.scss";
 import Nav from "./views/Nav";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Todo from "./views/Todo";
 import Covid from "./views/Covid";
 import { Countdown, NewCountDown } from "./views/Countdown";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Blog from "./views/Blog";
 import DetailBlog from "./views/DetailBlog";
+import AddNewBlog from "./views/AddNewBlog";
+import NotFound from "./views/NotFound";
 
 function App() {
   let [newName, setNewName] = useState("");
@@ -17,9 +19,7 @@ function App() {
     { id: 3, title: "teaching students", type: "Sushi" },
     { id: 4, title: "swmming", type: "Sushi" },
   ]);
-  useEffect(() => {
-    console.log("hihi");
-  }, []);
+
   const handleEventClick = () => {
     if (!newName) {
       alert("Nhập đi ba");
@@ -70,6 +70,12 @@ function App() {
             </Route>
             <Route path="/blog/:id">
               <DetailBlog />
+            </Route>
+            <Route path="/add-new-blog">
+              <AddNewBlog />
+            </Route>
+            <Route path="*">
+              <NotFound />
             </Route>
           </Switch>
         </header>

@@ -17,3 +17,39 @@
         }
     }
 }
+
+.blog-detail {
+    border: 1px solid grey;
+    padding: 30px;
+    border-radius: 3px;
+    margin: 10px;
+    min-height: 100px;
+}
+
+.btn-add-new {
+    margin: 10px 0;
+    cursor: pointer;
+}
+
+.blog-form {
+    max-width: 600px;
+    border: 1px solid grey;
+    padding: 5px;
+    margin: 0 auto;
+    text-align: left;
+    .text-add-new {
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    .input-data {
+        padding: 5px;
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+    }
+    button {
+        display: block;
+        margin: auto;
+    }
+}

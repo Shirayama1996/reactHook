@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-const useFetch = (url) => {
+const useFetch = (url, isBlog) => {
   let [allData, setData] = useState([]);
   let [loading, setLoading] = useState(true);
   let [isError, setIsError] = useState(false);
@@ -10,12 +10,14 @@ const useFetch = (url) => {
       try {
         let res = await axios.get(url);
         let data = res && res.data ? res.data : [];
-        setData(data.reverse());
+        if (!isBlog) {
+          data.reverse();
+        }
+        setData(data);
         setLoading(false);
       } catch (e) {
         setLoading(false);
         setIsError(true);
-        alert(e.message);
       }
     };
 
@@ -24,7 +26,7 @@ const useFetch = (url) => {
     return () => {
       setData([]);
     };
-  }, [url]);
+  }, [url, isBlog]);
   return {
     allData,
     loading,
